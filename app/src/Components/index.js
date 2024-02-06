@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AppRouter from "../AppRouter";
+import AppRouter from "../routes/AppRouter";
 import LeftSideBar from "./sideBar/leftSideBar";
 import styled from "styled-components";
 import Footer from "./footer";
