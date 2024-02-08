@@ -1,0 +1,15 @@
+.offscreen,
+.hide {
+  position: absolute;
+  left: 3000px;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+.valid {
+  color: green;
+}
+.invalid {
+  color: red;
+}
