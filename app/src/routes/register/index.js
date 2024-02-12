@@ -25,8 +25,8 @@ const Register = () => {
   const [passwordFocus, setPasswordFocus] = useState(false);
 
   const [matchPassword, setMatchPassword] = useState("");
-  const [validPasswordMatch, setValidMatchPassword] = useState(false);
-  const [passwordFocusMatch, setPasswordFocusMatch] = useState(false);
+  const [validMatchPassword, setValidMatchPassword] = useState(false);
+  const [matchPasswordFocus, setMatchPasswordFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
@@ -84,7 +84,9 @@ const Register = () => {
         <section>
           <h1>Success!</h1>
           <p>
-            <a href="#">Sign in</a>
+            <a href="/admin">Admin</a>
+            <a href="/editor">Editor</a>
+            <a href="/lounge">Lounge</a>
           </p>
         </section>
       ) : (
@@ -184,13 +186,13 @@ const Register = () => {
               <FontAwesomeIcon
                 icon={faCheck}
                 className={
-                  validPasswordMatch && matchPassword ? "valid" : "hide"
+                  validMatchPassword && matchPassword ? "valid" : "hide"
                 }
               />
               <FontAwesomeIcon
                 icon={faTimes}
                 className={
-                  validPasswordMatch || !matchPassword ? "hide" : "invalid"
+                  validMatchPassword || !matchPassword ? "hide" : "invalid"
                 }
               />
             </label>
@@ -200,15 +202,15 @@ const Register = () => {
               onChange={(e) => setMatchPassword(e.target.value)}
               value={matchPassword}
               required
-              aria-invalid={validPasswordMatch ? "false" : "true"}
+              aria-invalid={validMatchPassword ? "false" : "true"}
               aria-describedby="confirmnote"
-              onFocus={() => setPasswordFocusMatch(true)}
-              onBlur={() => setPasswordFocusMatch(false)}
+              onFocus={() => setMatchPasswordFocus(true)}
+              onBlur={() => setMatchPasswordFocus(false)}
             />
             <p
               id="confirmnote"
               className={
-                passwordFocusMatch && !validPasswordMatch
+                matchPasswordFocus && !validMatchPassword
                   ? "instructions"
                   : "offscreen"
               }
@@ -219,7 +221,7 @@ const Register = () => {
 
             {/* SUBMIT BUTTON */}
             <button
-              disabled={!validPassword || !validPasswordMatch || !validName}
+              disabled={!validPassword || !validMatchPassword || !validName}
             >
               Cadastrar
             </button>
