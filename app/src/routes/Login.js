@@ -8,6 +8,7 @@ import useInput from "../hooks/useInput";
 import useToggle from "../hooks/useToggle";
 
 import "./Login.css";
+import Loading from "./Loading";
 
 const LOGIN_URL = "/auth/";
 
@@ -97,7 +98,7 @@ const Login = () => {
       <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
         {errMsg}
       </p>
-      {loading && <p>Loading...</p>}
+      {loading && <Loading />}
       <form className="login-form" onSubmit={handleSubmit}>
         {/* USERNAME */}
         <div className="input-container">
