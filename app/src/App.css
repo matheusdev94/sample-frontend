@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(50, 69, 106);
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 5px;
   min-height: 70vh;
   max-height: 90vh;
