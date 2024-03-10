@@ -1,20 +1,32 @@
 import React from "react";
+import { Link as Links } from "react-router-dom";
 
 const Link = () => {
   return (
-    <div>
+    <div className="content">
       <h1>Links</h1>
       <h2>Public</h2>
-      <a href="/register">register</a>
+      <Links className="link" to="/register">
+        Register
+      </Links>
       <br />
-      <a href="/login">login</a>
+      <Links className="link" to="/login">
+        Login
+      </Links>
+
       <br />
       <h2>Private</h2>
-      <a href="/">home</a>
+      <Links className="link" to="/admin">
+        Go to Admin's Page
+      </Links>
       <br />
-      <a href="/editor">editor</a>
+      <Links className="link" to="/editor">
+        Go to Editor's Page
+      </Links>
       <br />
-      <a href="/admin">admin</a>
+      <Links className="link" to="/lounge">
+        Go to Louge's Page
+      </Links>
       <br />
     </div>
   );

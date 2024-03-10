@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-
+import "./Users.css";
 const UserItems = ({ users }) => {
   // Return the JSX elements inside the map function
   return users.map((user, index) => {
@@ -36,9 +36,9 @@ const Users = () => {
 
   return (
     <article>
-      <h2>Users List</h2>
+      <h1>Users List</h1>
       {users?.length ? (
-        <ul>
+        <ul className="user-list">
           <UserItems users={users} />
         </ul>
       ) : (
