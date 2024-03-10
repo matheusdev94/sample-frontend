@@ -1,0 +1,67 @@
+.offscreen {
+  display: none;
+}
+.errmsg {
+  display: flex;
+}
+.hide {
+  display: none;
+}
+.valid {
+  color: green;
+  display: flex;
+  right: -16px;
+  top: 5px;
+  position: absolute;
+}
+.invalid {
+  color: red;
+  display: flex;
+  right: -15px;
+  top: 5px;
+  position: absolute;
+}
+.instructions {
+  position: absolute;
+  background-color: rgb(14, 7, 23, 0.9);
+  padding: 5px;
+  top: 20px;
+  z-index: 100;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: end;
+  background-color: transparent;
+  /* background-image: url("../img/bg2.jpeg"); */
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  height: 100%;
+  position: relative;
+  overflow: auto;
+  align-self: flex-end;
+  width: 100%;
+}
+.form-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 30%;
+  background-color: rgb(50, 69, 106);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+form > button {
+  /* background-color: aqua; */
+  margin-top: 75px;
+  bottom: 0;
+}

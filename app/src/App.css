@@ -2,16 +2,85 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background-color: #282c34;
+  background-image: url("./img/bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
   width: 100%;
-  height: 40em;
-  /* height: 100%; */
-  justify-content: flex-start;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(50, 69, 106);
+  padding: 20px;
+  border-radius: 5px;
+  min-height: 70vh;
+  max-height: 90vh;
+  min-width: 30vw;
+  position: relative;
+  overflow: auto;
+  border: 1px solid white;
+}
+.home-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: aquamarine;
+  font-size: 13px;
+}
+button {
+  background-color: antiquewhite;
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 1px 1px 10px white;
+  }
+  &:disabled {
+    box-shadow: none;
+  }
+}
+label {
+  /* margin: 20px; */
+}
+.input-container {
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+  margin: 10px;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.text-input {
+  height: 21px;
+  border-radius: 5px;
+  /* width: 100%; */
+  margin-left: 10px;
+  &:focus {
+    outline: none;
+  }
+}
+.form-sugestion {
+  width: 100%;
+  font-size: 13px;
+  white-space: nowrap;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.link {
+  color: aquamarine;
 }
