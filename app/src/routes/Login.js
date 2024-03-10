@@ -101,6 +101,7 @@ const Login = () => {
       {loading && <Loading />}
       <form className="login-form" onSubmit={handleSubmit}>
         {/* USERNAME */}
+
         <div className="input-container">
           <label htmlFor="username">Username</label>
           <input
@@ -135,6 +136,7 @@ const Login = () => {
           />
           <label htmlFor="checkbox">Trust this device</label>
         </div>
+
         <button className="button">Login</button>
         <p className="form-sugestion">
           Dont have a account yet?
