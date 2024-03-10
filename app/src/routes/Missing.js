@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Missing = () => {
   return (
-    <div>
+    <div className="content">
       <h2>Missing</h2>
-      <a href="/">Home</a>
+      <Link to="/" className="home-btn">
+        Go to Home
+      </Link>
     </div>
   );
 };

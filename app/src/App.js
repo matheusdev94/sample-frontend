@@ -1,20 +1,21 @@
 import "./App.css";
 import React from "react";
-// import { Provider } from "react-redux";
-// import store from "./store/store";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./routes/Layout";
-import Login from "./routes/Login";
-import Register from "./routes/Register";
-import Home from "./routes/Home";
+
 import Unauthorized from "./routes/Unauthorized";
-import Editor from "./routes/Editor";
-import Admin from "./routes/Admin";
-import Lounge from "./routes/Lounge";
+import Register from "./routes/Register";
 import Missing from "./routes/Missing";
-import RequireAuth from "./Components/RequireAuth";
-import PersistLogin from "./Components/PersistLogin";
+import Editor from "./routes/Editor";
+import Lounge from "./routes/Lounge";
+import Login from "./routes/Login";
+import Admin from "./routes/Admin";
+import Home from "./routes/Home";
 import Link from "./routes/Link";
+
+import PersistLogin from "./Components/PersistLogin";
+import RequireAuth from "./Components/RequireAuth";
+import Layout from "./Components/Layout";
+
 const ROLES = {
   User: 2001,
   Editor: 1984,
@@ -34,7 +35,7 @@ function App() {
         {/* protected routes */}
         <Route element={<PersistLogin />}>
           <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-            <Route path="/" element={<Home />} />
+            <Route path="" element={<Home />} />
           </Route>
           <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
             <Route path="editor" element={<Editor />} />

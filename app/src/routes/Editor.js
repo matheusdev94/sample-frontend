@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Editor = () => {
   return (
-    <div>
+    <div className="content">
       <h1>Editor</h1>
-      <a href="/">Home</a>
+      <Link to="/" className="home-btn">
+        Home
+      </Link>
     </div>
   );
 };

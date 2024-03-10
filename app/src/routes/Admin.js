@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 
 const Admin = () => {
   return (
-    <section>
-      <div>Admins Page</div>
-      <br />
+    <section className="content">
+      <h1>Admins Page</h1>
       <Users />
-      <br />
-      <div className="flexGrow">
-        <Link to="/">Home</Link>
-      </div>
+      <Link to="/" className="home-btn">
+        Go to Home
+      </Link>
     </section>
   );
 };
