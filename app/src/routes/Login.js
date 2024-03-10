@@ -1,22 +1,27 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 import axios from "../api/axios";
 import useAuth from "../hooks/useAuth";
-import { useNavigate, useLocation } from "react-router-dom";
 
 import useInput from "../hooks/useInput";
 import useToggle from "../hooks/useToggle";
+
+import "./Login.css";
+
 const LOGIN_URL = "/auth/";
 
 const Login = () => {
   const { setAuth } = useAuth();
 
-  const navigate = useNavigate();
+  const navigateTo = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const userRef = useRef();
   const errRef = useRef();
+
+  const [loading, setLoading] = useState(false);
 
   const [username, resetUser, userAttribs] = useInput("username", "");
   const [password, setPassword] = useState("");
@@ -27,7 +32,23 @@ const Login = () => {
 
   useEffect(() => {
     userRef.current.focus();
+    const verifyRefreshToken = async () => {
+      await axios
+        .get("/refresh", {
+          withCredentials: true,
+        })
+        .catch((e) => {
+          console.error(e);
+        })
+        .then((response) => {
+          response?.data?.accessToken && navigateTo("/link");
+        });
+    };
+
+    verifyRefreshToken();
   }, []);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     setErrMsg("");
@@ -35,7 +56,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const response = await axios.post(
         LOGIN_URL,
@@ -54,7 +75,7 @@ const Login = () => {
       // setUser()👇instead
       resetUser();
       setPassword("");
-      navigate(from, { replace: true });
+      navigateTo(from, { replace: true });
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No response from server.");
@@ -65,43 +86,44 @@ const Login = () => {
       }
       errRef.current.focus();
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // const togglePersist = () => {
-  //   setPersist(!persist);
-  // };
-
-  // useEffect(() => {
-  //   localStorage.setItem("persist", persist);
-  // }, [persist]);
-
   return (
-    <section>
+    <section className="content">
+      <h1>Login</h1>
       <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
         {errMsg}
       </p>
+      {loading && <p>Loading...</p>}
       <form className="login-form" onSubmit={handleSubmit}>
         {/* USERNAME */}
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          ref={userRef}
-          // onChange={(e) => setUsername(e.target.value)}
-          // value={username}
-          {...userAttribs}
-          required
-        />
-
+        <div className="input-container">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            className="text-input"
+            ref={userRef}
+            // onChange={(e) => setUsername(e.target.value)}
+            // value={username}
+            {...userAttribs}
+            required
+          />
+        </div>
         {/* PASSWORD */}
-        <label htmlFor="pwd">Password</label>
-        <input
-          autoComplete="on"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="input-container">
+          <label htmlFor="pwd">Password</label>
+          <input
+            className="text-input"
+            autoComplete="on"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
         {/* CHECKBOX */}
         <div className="persist-checkbox">
           <input
@@ -112,8 +134,13 @@ const Login = () => {
           />
           <label htmlFor="checkbox">Trust this device</label>
         </div>
-
-        <button>Entrar</button>
+        <button className="button">Login</button>
+        <p className="form-sugestion">
+          Dont have a account yet?
+          <Link to="/register" className="to-login-register-link">
+            Assign now
+          </Link>
+        </p>
       </form>
     </section>
   );
