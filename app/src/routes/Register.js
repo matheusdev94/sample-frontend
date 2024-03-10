@@ -121,7 +121,7 @@ const Register = () => {
             {/* USER */}
             <div className="input-container">
               <label htmlFor="username">
-                Username
+                Username:
                 <FontAwesomeIcon
                   icon={faCheck}
                   className={validName ? "valid" : "hide"}
