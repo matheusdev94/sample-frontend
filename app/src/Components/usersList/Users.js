@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import "./Users.css";
 import useRefreshToken from "../../hooks/useRefreshToken";
+import "./Users.css";
+
 const UserItems = ({ users }) => {
   // Return the JSX elements inside the map function
   return users.map((user, index) => {
@@ -41,7 +42,7 @@ const Users = () => {
   }, []);
 
   return (
-    <article>
+    <article className="list-wrapper">
       <h1>Users List</h1>
       {users?.length ? (
         <ul className="user-list">

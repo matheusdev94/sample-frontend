@@ -1,9 +1,9 @@
+@import url("../styles/animations.css");
 .login-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   /* background-color: aqua; */
 }
 .persist-checkbox {
@@ -15,4 +15,64 @@
   margin-bottom: 10px;
   align-items: center;
   font-size: 13px;
+}
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgb(50, 69, 106);
+  padding: 15px;
+  border-radius: 5px;
+  min-height: 430px;
+  width: 350px;
+  position: relative;
+  border: 1px solid white;
+  overflow: auto;
+  overflow-x: hidden;
+  animation: in 1s;
+}
+
+.login-content-err {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(50, 69, 106);
+  padding: 15px;
+  border-radius: 5px;
+  min-height: 430px;
+  width: 350px;
+  position: relative;
+  border: 1px solid white;
+  overflow: auto;
+  overflow-x: hidden;
+  animation: not 0.7s;
+}
+.login-content-out {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgb(50, 69, 106);
+  padding: 15px;
+  border-radius: 5px;
+  min-height: 430px;
+  width: 350px;
+  position: relative;
+  border: 1px solid white;
+  overflow: auto;
+  overflow-x: hidden;
+  animation: out 1s;
+}
+.loading-msg {
+  display: flex;
+  margin: 0;
+  animation: in 0.3s;
+}
+.loading-msg-hidden {
+  /* visibility: hidden; */
+  display: none;
 }

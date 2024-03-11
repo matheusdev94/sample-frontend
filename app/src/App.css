@@ -1,3 +1,5 @@
+@import url("./styles/animations.css");
+
 .App {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -20,15 +22,17 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(50, 69, 106);
-  /* padding: 20px; */
+  padding: 15px;
   border-radius: 5px;
   min-height: 70vh;
   max-height: 90vh;
-  min-width: 30vw;
+  width: 75%;
   position: relative;
   overflow: auto;
   border: 1px solid white;
+  animation: fadein 0.5s;
 }
+
 .home-btn {
   position: absolute;
   top: 10px;
@@ -49,6 +53,7 @@ button {
   }
   &:disabled {
     box-shadow: none;
+    cursor: not-allowed;
   }
 }
 label {
@@ -83,4 +88,7 @@ label {
 }
 .link {
   color: aquamarine;
+}
+.outlet {
+  background-color: antiquewhite;
 }

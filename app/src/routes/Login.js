@@ -31,6 +31,8 @@ const Login = () => {
 
   const [check, toggleCheck] = useToggle("persist", false);
 
+  const [changePage, setChangePage] = useState(false);
+
   useEffect(() => {
     userRef.current.focus();
     const verifyRefreshToken = async () => {
@@ -57,9 +59,11 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrMsg(null);
     setLoading(true);
-    try {
-      const response = await axios.post(
+
+    await axios
+      .post(
         LOGIN_URL,
         JSON.stringify({ username: username, password: password }),
         {
@@ -68,37 +72,69 @@ const Login = () => {
           },
           withCredentials: true,
         }
-      );
-      const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
-
-      setAuth({ username, roles, accessToken });
-      // setUser()👇instead
-      resetUser();
-      setPassword("");
-      navigateTo(from, { replace: true });
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No response from server.");
-      } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized.");
-      } else {
-        setErrMsg("Login Failed");
-      }
-      errRef.current.focus();
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
+      )
+      .then((res) => {
+        const accessToken = res?.data?.accessToken;
+        const roles = res?.data?.roles;
+        setAuth({ username, roles, accessToken });
+        resetUser();
+        setPassword("");
+        navigateTo(from, { replace: true });
+      })
+      .catch((err) => {
+        if (!err?.response) {
+          setErrMsg("No response from server.");
+        } else if (
+          err.response?.status === 401 ||
+          err.response?.status === 403
+        ) {
+          setErrMsg("Unauthorized.");
+        } else {
+          setErrMsg("Login Failed.");
+        }
+        errRef.current.focus();
+        console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
+        if (errMsg !== null) {
+          setChangePage("erro");
+        } else {
+          setChangePage(true);
+        }
+      });
+    // console.log("reponse:::: ");
+    // console.log(response);
   };
-
+  // useEffect(() => {
+  //   alert(
+  //     `changePage: ${JSON.stringify(changePage)}||errMsg: ${JSON.stringify(
+  //       errMsg
+  //     )}`
+  //   );
+  // }, [changePage]);
   return (
-    <section className="content">
+    <section
+      className={`login-content${
+        changePage === true ? "-out" : changePage === "erro" ? "-err" : ""
+      }`}
+    >
       <h1>Login</h1>
-      <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
-        {errMsg}
-      </p>
-      {loading && <Loading />}
+      {errMsg ? (
+        <p
+          ref={errRef}
+          className={errMsg ? "loading-msg" : "loading-msg-hidden"}
+        >
+          {errMsg}
+        </p>
+      ) : (
+        <p
+          ref={errRef}
+          className={loading ? "loading-msg" : "loading-msg-hidden"}
+        >
+          Loading...
+        </p>
+      )}
       <form className="login-form" onSubmit={handleSubmit}>
         {/* USERNAME */}
 

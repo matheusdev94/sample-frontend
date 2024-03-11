@@ -53,7 +53,9 @@
   height: 100%;
   width: 30%;
   background-color: rgb(50, 69, 106);
+  animation: fadein 0.5s ease;
 }
+
 .form {
   display: flex;
   flex-direction: column;
@@ -64,7 +66,7 @@
 }
 form > button {
   /* background-color: aqua; */
-  margin-top: 75px;
+  margin: 10px;
   bottom: 0;
 }
 .inputs-wrapper {

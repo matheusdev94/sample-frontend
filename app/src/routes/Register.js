@@ -101,6 +101,7 @@ const Register = () => {
       }
       errRef.current.focus();
     }
+    setLoading(false);
   };
   return (
     <section className="form-wrapper">
