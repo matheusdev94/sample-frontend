@@ -1,3 +1,4 @@
+@import url("./styles/scrollbar.css");
 @import url("./styles/animations.css");
 
 .App {
@@ -31,16 +32,29 @@
   overflow: auto;
   border: 1px solid white;
   animation: fadein 0.5s;
+
+  justify-content: space-between;
 }
 
 .home-btn {
   position: absolute;
   top: 10px;
   left: 10px;
-  color: aquamarine;
+  color: white;
   font-size: 13px;
+  background-color: #173773;
+  padding: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid;
+  transition: 0.4s;
+  &:hover {
+    text-shadow: 1px 1px 7px white;
+    box-shadow: 0px 0px 5px white;
+  }
 }
 button {
+  margin: 10px;
   background-color: antiquewhite;
   width: 200px;
   height: 30px;
@@ -91,9 +105,36 @@ label {
 }
 .link-disabled {
   color: rgb(245, 245, 245);
-  /* cursor: not-allowed; */
 }
 
-.outlet {
-  background-color: antiquewhite;
+.list-wrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-height: 78%;
+}
+ul {
+  height: 260px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  background-color: rgb(23, 55, 115);
+  padding: 0px 9px;
+  border-radius: 10px;
+  margin: 1px 5px;
+}
+li {
+  align-self: flex-start;
+  border-bottom: 1px solid;
+  width: 100%;
+}
+
+.to-login-register-link {
+  margin: 5px;
+  color: aquamarine;
 }

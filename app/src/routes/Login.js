@@ -7,9 +7,6 @@ import useAuth from "../hooks/useAuth";
 import useInput from "../hooks/useInput";
 import useToggle from "../hooks/useToggle";
 
-import "./Login.css";
-import Loading from "./Loading";
-
 const LOGIN_URL = "/auth/";
 
 const Login = () => {
@@ -103,16 +100,7 @@ const Login = () => {
           setChangePage(true);
         }
       });
-    // console.log("reponse:::: ");
-    // console.log(response);
   };
-  // useEffect(() => {
-  //   alert(
-  //     `changePage: ${JSON.stringify(changePage)}||errMsg: ${JSON.stringify(
-  //       errMsg
-  //     )}`
-  //   );
-  // }, [changePage]);
   return (
     <section
       className={`login-content${
@@ -148,6 +136,7 @@ const Login = () => {
             // value={username}
             {...userAttribs}
             required
+            maxLength={50}
           />
         </div>
         {/* PASSWORD */}
@@ -160,6 +149,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            maxLength={50}
           />
         </div>
         {/* CHECKBOX */}

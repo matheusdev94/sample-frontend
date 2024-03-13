@@ -43,13 +43,13 @@ const Users = () => {
 
   return (
     <article className="list-wrapper">
-      <h1>Users List</h1>
+      <h2>Users List</h2>
       {users?.length ? (
-        <ul className="user-list">
+        <ul className="lists">
           <UserItems users={users} />
         </ul>
       ) : (
-        <p>Sem Usuários</p>
+        <p>Sem usuários.</p>
       )}
     </article>
   );

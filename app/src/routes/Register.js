@@ -144,6 +144,7 @@ const Register = () => {
                 aria-describedby="uidnote"
                 onFocus={() => setUserFocus(true)}
                 onBlur={() => setUserFocus(false)}
+                maxLength={50}
               />
               <p
                 id="uidnote"
@@ -184,6 +185,7 @@ const Register = () => {
                 aria-describedby="pwdnote"
                 onFocus={() => setPasswordFocus(true)}
                 onBlur={() => setPasswordFocus(false)}
+                maxLength={50}
               />
               <p
                 id="pwdnote"
@@ -233,6 +235,7 @@ const Register = () => {
                 aria-describedby="confirmnote"
                 onFocus={() => setMatchPasswordFocus(true)}
                 onBlur={() => setMatchPasswordFocus(false)}
+                maxLength={50}
               />
               <p
                 id="confirmnote"
@@ -251,7 +254,7 @@ const Register = () => {
           <button
             disabled={!validPassword || !validMatchPassword || !validName}
           >
-            Cadastrar
+            Register
           </button>
         </form>
         <p className="form-sugestion">

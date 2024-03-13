@@ -1,14 +1,14 @@
-.user-list::-webkit-scrollbar {
+ul::-webkit-scrollbar {
   background-color: transparent;
 
   width: 7px;
 }
 
-.user-list::-webkit-scrollbar-thumb {
+ul::-webkit-scrollbar-thumb {
   background-color: white;
   border-radius: 10px;
   width: 5px;
 }
-.user-list::-webkit-scrollbar-track {
+ul::-webkit-scrollbar-track {
   width: 5px;
 }
