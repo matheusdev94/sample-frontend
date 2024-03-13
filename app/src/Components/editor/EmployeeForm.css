@@ -1,0 +1,54 @@
+.antiCsrf-input {
+  display: none;
+}
+.register-button-hide {
+  visibility: hidden;
+
+  height: 35px;
+}
+.register-button {
+  background-color: antiquewhite;
+  width: 200px;
+  height: 35px;
+
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  visibility: visible;
+
+  transition: 1s;
+  animation: button-show 0.5s;
+  &:hover {
+    box-shadow: 1px 1px 10px white;
+  }
+  &:disabled {
+    transition: 1s;
+    animation: button-hide 0.5s;
+    /* visibility: hidden; */
+  }
+}
+
+@keyframes button-show {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    width: 200px;
+  }
+}
+
+@keyframes button-hide {
+  0% {
+    width: 200px;
+    opacity: 1;
+  }
+  100% {
+    width: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.employee-form-wraper {
+  height: 100%;
+}

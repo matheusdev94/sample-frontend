@@ -3,6 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Unauthorized from "./routes/Unauthorized";
+import AddEmployee from "./routes/AddEmployee";
 import Register from "./routes/Register";
 import Missing from "./routes/Missing";
 import Editor from "./routes/Editor";
@@ -42,6 +43,12 @@ function App() {
           </Route>
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
             <Route path="admin" element={<Admin />} />
+          </Route>
+          <Route
+            element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}
+          >
+            <Route path="editor" element={<Editor />} />
+            <Route path="add-employee" element={<AddEmployee />} />
           </Route>
           <Route
             element={
