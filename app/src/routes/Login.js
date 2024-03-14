@@ -7,6 +7,8 @@ import useAuth from "../hooks/useAuth";
 import useInput from "../hooks/useInput";
 import useToggle from "../hooks/useToggle";
 
+import "./Login.css";
+
 const LOGIN_URL = "/auth/";
 
 const Login = () => {
