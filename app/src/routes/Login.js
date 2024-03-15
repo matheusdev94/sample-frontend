@@ -48,7 +48,7 @@ const Login = () => {
     };
 
     verifyRefreshToken();
-  }, []);
+  }, [navigateTo]);
 
   useEffect(() => {}, []);
 
