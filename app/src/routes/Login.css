@@ -21,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
+  position: absolute;
   background-color: rgb(50, 69, 106);
   padding: 15px;
   border-radius: 5px;
@@ -31,7 +31,7 @@
   border: 1px solid white;
   overflow: auto;
   overflow-x: hidden;
-  animation: in 1s;
+  animation: fadein 1s;
 }
 
 .login-content-err {
