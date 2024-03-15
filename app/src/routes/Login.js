@@ -50,8 +50,6 @@ const Login = () => {
     verifyRefreshToken();
   }, [navigateTo]);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     setErrMsg("");
   }, [password, username]);
