@@ -1,7 +1,10 @@
 // store.js
-import { createStore } from "redux";
-import rootReducer from "./reducers"; // Você precisará criar este arquivo
+import { configureStore } from "@reduxjs/toolkit";
 
-const store = createStore(rootReducer);
+import languageSlice from "./slices/languageSlice";
 
-export default store;
+export default configureStore({
+  reducer: {
+    language: languageSlice,
+  },
+});

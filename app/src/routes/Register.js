@@ -1,3 +1,4 @@
+import { FcGoogle } from "react-icons/fc";
 import { useRef, useState, useEffect } from "react";
 import {
   faCheck,
@@ -13,11 +14,16 @@ import "./Register.css";
 import SuccessRegistration from "./Success";
 import Loading from "./Loading";
 
+import { useSelector } from "react-redux";
+import { languages } from "../strings/strings";
+
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "/register";
 
 const Register = () => {
+  const language = useSelector((state) => state.language.language);
+
   const userRef = useRef();
   const errRef = useRef();
 
@@ -38,6 +44,9 @@ const Register = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const loginGoogle = async () => {
+    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
+  };
   const navigateTo = useNavigate();
   useEffect(() => {
     userRef.current.focus();
@@ -108,7 +117,7 @@ const Register = () => {
       <div className="form-content">
         {success && <SuccessRegistration />}
         {loading && <Loading />}
-        <h1>Register</h1>
+        <h1>{languages[language].textRegister}</h1>
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
@@ -122,7 +131,7 @@ const Register = () => {
             {/* USER */}
             <div className="input-container">
               <label htmlFor="username">
-                Username:
+                {languages[language].labelUsername}
                 <FontAwesomeIcon
                   icon={faCheck}
                   className={validName ? "valid" : "hide"}
@@ -164,7 +173,7 @@ const Register = () => {
             {/* PASSWORD */}
             <div className="input-container">
               <label htmlFor="password">
-                Password:
+                {languages[language].labelPwd}
                 <FontAwesomeIcon
                   icon={faCheck}
                   className={validPassword ? "valid" : "hide"}
@@ -210,7 +219,7 @@ const Register = () => {
             {/* PASSWORD CONFIRMATION */}
             <div className="input-container">
               <label htmlFor="confirm_pwd">
-                Confirm Password:
+                {languages[language].labelConfirmPwd}
                 <FontAwesomeIcon
                   icon={faCheck}
                   className={
@@ -254,14 +263,29 @@ const Register = () => {
           <button
             disabled={!validPassword || !validMatchPassword || !validName}
           >
-            Register
+            {languages[language].textRegister}
+          </button>
+          <div className="login-division">
+            <hr />
+            <p>{languages[language].textOrLogin}</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              loginGoogle();
+            }}
+            className="button"
+          >
+            <FcGoogle size={"18px"} />
+            {languages[language].textLoginButtonGoogle}
           </button>
         </form>
+
         <p className="form-sugestion">
-          Alredy have a account?
+          {languages[language].alredyHaveAccText}
           {/* <br /> */}
           <Link to="/login" className="to-login-register-link">
-            Log in
+            {languages[language].loginButton}
           </Link>
         </p>
       </div>

@@ -10,25 +10,30 @@ import useRefreshToken from "../../hooks/useRefreshToken";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useNavigate } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+import { languages } from "../../strings/strings";
+
 import "./EmployeeForm.css";
 
 const EmployeeForm = () => {
-  const [loading, setLoading] = useState(true);
-  const refresh = useRefreshToken();
-
-  const navigate = useNavigate();
-
+  const language = useSelector((state) => state.language.language);
   const [success, setSuccess] = useState(false);
 
   return (
     <section className="employee-form-wraper">
-      {success ? <p>Register created.</p> : <Form setSuccess={setSuccess} />}
+      {success ? (
+        <p>{languages[language].registerCreated}</p>
+      ) : (
+        <Form setSuccess={setSuccess} />
+      )}
     </section>
   );
 };
 
 const NAME_REGEX = /^[A-z][A-z]{3,23}$/;
 const Form = ({ antiCsfr, setSuccess }) => {
+  const language = useSelector((state) => state.language.language);
+
   const errRef = useRef();
   const userRef = useRef();
 
@@ -133,18 +138,14 @@ const Form = ({ antiCsfr, setSuccess }) => {
     } else {
       if (validFirstName && validSecondName) setShowButton(true);
     }
-
     return () => clearTimeout(timer);
   }, [validFirstName, validSecondName]);
 
-  // useEffect(() => {
-  //   alert(showButton);
-  // }, [showButton]);
   return (
     <form className="form" onSubmit={handleSubmit}>
       <inpu className="antiCsrf-input" value={antiCsfr} />
       <div className="inputs-wrapper">
-        {loading && <p>Loading...</p>}
+        {loading && <p>{languages[language].loading}</p>}
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
@@ -152,11 +153,12 @@ const Form = ({ antiCsfr, setSuccess }) => {
         >
           {errMsg}
         </p>
-        <p>Enter the eployees informations:</p>
+        <p>{languages[language].enterEmpInfo}</p>
         {/* FIRSTNAME */}
         <div className="input-container">
           <label htmlFor="firstName">
-            Fist Name:
+            {languages[language].firstName}
+
             <FontAwesomeIcon
               icon={faCheck}
               className={validFirstName ? "valid" : "hide"}
@@ -195,7 +197,7 @@ const Form = ({ antiCsfr, setSuccess }) => {
         {/* SECONDNAME */}
         <div className="input-container">
           <label htmlFor="secondName">
-            Last Name:
+            {languages[language].lastName}
             <FontAwesomeIcon
               icon={faCheck}
               className={validSecondName ? "valid" : "hide"}
@@ -237,7 +239,7 @@ const Form = ({ antiCsfr, setSuccess }) => {
         className={showButton ? "register-button" : "register-button-hide"}
         disabled={!validFirstName || !validSecondName}
       >
-        Register
+        {languages[language].textRegister}
       </button>
     </form>
   );

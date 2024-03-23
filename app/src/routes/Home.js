@@ -4,7 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 import useAuth from "../hooks/useAuth";
 
+import { useSelector } from "react-redux";
+import { languages } from "../strings/strings";
+
 const Home = () => {
+  const language = useSelector((state) => state.language.language);
+
   const { auth } = useAuth();
   const navigate = useNavigate();
   const logout = useLogout();
@@ -15,24 +20,28 @@ const Home = () => {
   };
   return (
     <div className="content">
-      <h1>Home Page</h1>
-      <p>Welcome, {auth.username ? auth.username : "User"}.</p>
+      <h1>{languages[language].textHomePage}</h1>
+      <p>
+        {languages[language].welcome}, {auth.username ? auth.username : "User"}.
+      </p>
 
       <br />
       <Link className="link" to="/admin">
-        Go to Admin's Page
+        {languages[language].textGoToAdm}
       </Link>
       <br />
       <Link className="link" to="/editor">
-        Go to Editor's Page
+        {languages[language].textGoToEditor}
       </Link>
       <br />
       <Link className="link" to="/lounge">
-        Go to Louge's Page
+        {languages[language].textGoToLounge}
       </Link>
       <br />
 
-      <button onClick={() => signOut()}>Sign out</button>
+      <button onClick={() => signOut()}>
+        {languages[language].textSignOut}
+      </button>
     </div>
   );
 };

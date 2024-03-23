@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import { Link as Links, useNavigate } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
-import "./Link.css";
 import useAuth from "../hooks/useAuth";
 import useRefreshToken from "../hooks/useRefreshToken";
+
+import { useSelector } from "react-redux";
+import { languages } from "../strings/strings";
+
+import "./Link.css";
 const Link = () => {
+  const language = useSelector((state) => state.language.language);
+
   const { auth } = useAuth();
   const navigate = useNavigate();
   const logout = useLogout();
@@ -23,33 +29,35 @@ const Link = () => {
 
   return (
     <div className="content">
-      <h1>Links</h1>
-      <h2>Public</h2>
+      <h1>{languages[language].links}</h1>
+      <h2>{languages[language].textPublic}</h2>
       <Links
         className={auth.accessToken ? "link-disabled" : "link"}
         to="/register"
       >
-        Register
+        {languages[language].textRegister}
       </Links>
       <Links
         className={auth.accessToken ? "link-disabled" : "link"}
         to="/login"
       >
-        Login
+        {languages[language].textLogin}
       </Links>
 
-      <h2>Private</h2>
+      <h2>{languages[language].textPrivate}</h2>
       <Links className="link" to="/admin">
-        Go to Admin's Page
+        {languages[language].textAdmin}
       </Links>
       <Links className="link" to="/editor">
-        Go to Editor's Page
+        {languages[language].textEditor}
       </Links>
       <Links className="link" to="/lounge">
-        Go to Louge's Page
+        {languages[language].textLounge}
       </Links>
       <br />
-      <button onClick={() => signOut()}>Sign out</button>
+      <button onClick={() => signOut()}>
+        {languages[language].textSignOut}
+      </button>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 import axios from "../api/axios";
 import useAuth from "../hooks/useAuth";
@@ -7,11 +8,17 @@ import useAuth from "../hooks/useAuth";
 import useInput from "../hooks/useInput";
 import useToggle from "../hooks/useToggle";
 
+import { useSelector } from "react-redux";
+import { languages } from "../strings/strings";
+
 import "./Login.css";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const LOGIN_URL = "/auth/";
 
 const Login = () => {
+  const language = useSelector((state) => state.language.language);
+
   const { setAuth } = useAuth();
 
   const navigateTo = useNavigate();
@@ -32,10 +39,12 @@ const Login = () => {
 
   const [changePage, setChangePage] = useState(false);
 
+  const axiosP = useAxiosPrivate();
+
   useEffect(() => {
     userRef.current.focus();
     const verifyRefreshToken = async () => {
-      await axios
+      await axiosP
         .get("/refresh", {
           withCredentials: true,
         })
@@ -43,6 +52,8 @@ const Login = () => {
           console.error(e);
         })
         .then((response) => {
+          console.clear();
+          // alert(JSON.stringify(response));
           response?.data?.accessToken && navigateTo("/link");
         });
     };
@@ -53,6 +64,10 @@ const Login = () => {
   useEffect(() => {
     setErrMsg("");
   }, [password, username]);
+
+  const loginGoogle = async () => {
+    window.location.href = `${process.env.REACT_APP_API_URL}/auth/google`;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -107,7 +122,8 @@ const Login = () => {
         changePage === true ? "-out" : changePage === "erro" ? "-err" : ""
       }`}
     >
-      <h1>Login</h1>
+      <h1>{languages[language].textLogin}</h1>
+
       {errMsg ? (
         <p
           ref={errRef}
@@ -120,14 +136,14 @@ const Login = () => {
           ref={errRef}
           className={loading ? "loading-msg" : "loading-msg-hidden"}
         >
-          Loading...
+          {languages[language].loading}
         </p>
       )}
       <form className="login-form" onSubmit={handleSubmit}>
         {/* USERNAME */}
 
         <div className="input-container">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">{languages[language].labelUsername}</label>
           <input
             type="text"
             className="text-input"
@@ -141,7 +157,7 @@ const Login = () => {
         </div>
         {/* PASSWORD */}
         <div className="input-container">
-          <label htmlFor="pwd">Password</label>
+          <label htmlFor="pwd">{languages[language].labelPwd}</label>
           <input
             className="text-input"
             autoComplete="on"
@@ -160,14 +176,33 @@ const Login = () => {
             onChange={toggleCheck}
             checked={check}
           />
-          <label htmlFor="checkbox">Trust this device</label>
+          <label htmlFor="checkbox">
+            {languages[language].textTrustThisDevice}
+          </label>
         </div>
 
-        <button className="button">Login</button>
+        <button type="submit" className="button">
+          {languages[language].textLogin}
+        </button>
+        <div className="login-division">
+          <hr />
+          <p>{languages[language].textOrLogin}</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            loginGoogle();
+          }}
+          className="button"
+        >
+          <FcGoogle size={"18px"} />
+          {languages[language].textLoginButtonGoogle}
+        </button>
         <p className="form-sugestion">
-          Dont have a account yet?
+          {languages[language].textDontHaveAccount}
+
           <Link to="/register" className="to-login-register-link">
-            Assign now
+            {languages[language].textRegister}
           </Link>
         </p>
       </form>

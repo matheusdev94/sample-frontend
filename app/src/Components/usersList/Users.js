@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useRefreshToken from "../../hooks/useRefreshToken";
+
+import { useSelector } from "react-redux";
+import { languages } from "../../strings/strings";
+
 import "./Users.css";
 
 const UserItems = ({ users }) => {
@@ -11,6 +15,8 @@ const UserItems = ({ users }) => {
 };
 
 const Users = () => {
+  const language = useSelector((state) => state.language.language);
+
   const [users, setUsers] = useState();
   const axiosPrivate = useAxiosPrivate();
 
@@ -43,13 +49,13 @@ const Users = () => {
 
   return (
     <article className="list-wrapper">
-      <h2>Users List</h2>
+      <h2>{languages[language].usersList}</h2>
       {users?.length ? (
         <ul className="lists">
           <UserItems users={users} />
         </ul>
       ) : (
-        <p>Sem usuários.</p>
+        <p>{languages[language].emptyList}</p>
       )}
     </article>
   );
