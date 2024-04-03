@@ -1,0 +1,82 @@
+.offscreen {
+  display: none;
+}
+.errmsg {
+  display: flex;
+}
+.hide {
+  display: none;
+}
+.valid {
+  color: green;
+  display: flex;
+  right: -16px;
+  top: 5px;
+  position: absolute;
+}
+.invalid {
+  color: red;
+  display: flex;
+  right: -15px;
+  top: 5px;
+  position: absolute;
+}
+.instructions {
+  position: absolute;
+  background-color: rgb(14, 7, 23, 0.9);
+  padding: 5px;
+  top: 20px;
+  z-index: 100;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-end;
+  background-color: transparent;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+  align-self: flex-end;
+  width: 100%;
+}
+.form-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 350px;
+  background-color: rgb(50, 69, 106);
+  animation: fadein 0.5s ease;
+  padding: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  height: 100%;
+}
+form > button {
+  /* background-color: aqua; */
+  margin: 10px;
+  bottom: 0;
+}
+.inputs-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (width< 980px) {
+  .input-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

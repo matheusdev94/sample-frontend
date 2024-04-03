@@ -1,0 +1,61 @@
+.antiCsrf-input {
+  display: none;
+}
+.register-button-hide {
+  visibility: hidden;
+}
+.register-button {
+  background-color: antiquewhite;
+  width: 200px;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  visibility: visible;
+  transition: 1s;
+  animation: button-show 0.5s;
+  &:hover {
+    box-shadow: 1px 1px 10px white;
+  }
+  &:disabled {
+    transition: 1s;
+    animation: button-hide 0.5s;
+    /* visibility: hidden; */
+  }
+}
+
+@keyframes button-show {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+
+@keyframes button-hide {
+  0% {
+    width: 200px;
+    opacity: 1;
+  }
+  100% {
+    width: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.name-item-list {
+  margin: 0;
+  align-self: center;
+}
+.item-li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+.delete-employee-btn {
+  background-color: rgb(244, 86, 86);
+  width: 100px;
+  color: white;
+}
