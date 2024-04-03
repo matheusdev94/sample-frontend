@@ -71,6 +71,11 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (username.length < 1 || password.length < 1) {
+      setErrMsg(languages[language].requiredInput);
+
+      return;
+    }
     setErrMsg(null);
     setLoading(true);
 
@@ -125,10 +130,7 @@ const Login = () => {
       <h1>{languages[language].textLogin}</h1>
 
       {errMsg ? (
-        <p
-          ref={errRef}
-          className={errMsg ? "loading-msg" : "loading-msg-hidden"}
-        >
+        <p ref={errRef} className={errMsg ? "err-msg" : "loading-msg-hidden"}>
           {errMsg}
         </p>
       ) : (
@@ -151,7 +153,9 @@ const Login = () => {
             // onChange={(e) => setUsername(e.target.value)}
             // value={username}
             {...userAttribs}
-            required
+            // required
+            // title={languages[language].requiredInput}
+            // oninvalid={`this.setCustomValidity('${languages[language].requiredInput}')`}
             maxLength={50}
           />
         </div>
@@ -164,7 +168,8 @@ const Login = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            // required
+            // title={languages[language].requiredInput}
             maxLength={50}
           />
         </div>
