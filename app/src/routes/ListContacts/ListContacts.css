@@ -1,0 +1,12 @@
+#listcontacts-content {
+  display: flex;
+  flex-direction: row;
+  background: #2a2b2f;
+  border-radius: 10px 15px;
+  padding: 10px;
+  border: 1px solid rgb(1, 203, 58);
+  max-width: 80%;
+  height: 50px;
+  /* width: 300px; */
+  margin-right: 125px;
+}

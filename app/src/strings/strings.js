@@ -48,6 +48,7 @@ export const languages = {
     AddEmployeeTitle: "Adicionar Empregados",
     registerCreated: "Registro criado com sucesso.",
     requiredInput: "Preencha todos os campos.",
+    contactsTitle: "Lista de Contatos",
   },
   it: {
     textLogin: "Accedi",
@@ -94,6 +95,7 @@ export const languages = {
     AddEmployeeTitle: "Aggiungi Dipendenti",
     registerCreated: "Registrazione creata con successo.",
     requiredInput: "Compila tutti i campi.",
+    contactsTitle: "Lista de Contatos",
   },
 
   es: {
@@ -142,6 +144,7 @@ export const languages = {
     registerCreated: "Registro creado exitosamente.",
     requiredInput: "Campo obligatorio.",
     requiredInput: "Complete todos los campos.",
+    contactsTitle: "Lista de Contactos",
   },
 
   fr: {
@@ -190,6 +193,7 @@ export const languages = {
     registerCreated: "Enregistrement créé avec succès.",
     requiredInput: "Champ obligatoire.",
     requiredInput: "Remplissez tous les champs.",
+    contactsTitle: "Liste de Contacts",
   },
   en: {
     textLogin: "Login",
@@ -236,5 +240,6 @@ export const languages = {
     AddEmployeeTitle: "Add Employees",
     registerCreated: "Register created.",
     requiredInput: "Fill in all fields.",
+    contactsTitle: "Contact Lists",
   },
 };

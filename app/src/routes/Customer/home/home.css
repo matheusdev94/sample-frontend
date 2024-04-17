@@ -1,0 +1,84 @@
+@import url("../../../styles/animations.css");
+h1 {
+  margin: 0;
+}
+.home-title {
+  display: flex;
+  justify-content: center;
+  /* visibility: hidden; */
+}
+.headlight {
+  position: relative;
+  background-image: url("../../../img/header.jpg");
+  height: 74vh;
+}
+.company-description {
+  /* position: absolute; */
+  width: 35%;
+  background-color: rgba(211, 211, 211, 0.85);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  color: rgb(76, 76, 76);
+  margin: 10% 0% 0% 10%;
+  animation: slide-in 1.5s forwards;
+}
+
+.header-highlights {
+  display: flex;
+  flex-direction: column;
+}
+/* .company-description-out {
+  width: 100%;
+  animation: slide-in 0.5s forwards;
+  padding: 10px;
+  margin: 10px;
+} */
+.sales-highlight {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(193, 152, 232),
+    rgb(0 26 185)
+  );
+  background-position: center;
+  background-size: 100% auto;
+  position: relative;
+  width: 100%;
+  height: 92vh;
+}
+#company-description-0 {
+  margin-top: 200px;
+}
+#company-description-0,
+#company-description-2 {
+  /* margin-left: 100px; */
+  animation: dummyAnimation 30s ease-in-out infinite;
+  width: 60%;
+  width: 50%;
+}
+#company-description-1,
+#company-description-3 {
+  animation: dummyAnimation-two 30s ease-in-out infinite;
+  width: 60%;
+  margin-left: 20px;
+}
+@media screen and (width<600px) {
+  .company-description {
+    width: 70%;
+  }
+  .home-logo {
+    width: 280px;
+  }
+}
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #fff; */
+}
+.home-logo {
+  margin: 7px;
+  padding: 3px;
+  background: #e7e6e6;
+}

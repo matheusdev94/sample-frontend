@@ -13,9 +13,15 @@ import Admin from "./routes/Admin";
 import Home from "./routes/Home";
 import Link from "./routes/Link";
 
+import HomePage from "./routes/Customer/home/home";
+import Gallery from "./routes/Customer/gallery/gallery";
+import Services from "./routes/Customer/services/services";
+import Contact from "./routes/Customer/contact/contact";
+
 import PersistLogin from "./Components/PersistLogin";
 import RequireAuth from "./Components/RequireAuth";
 import Layout from "./Components/Layout";
+import ListContacts from "./routes/ListContacts/ListContacts";
 
 const ROLES = {
   User: 2001,
@@ -27,40 +33,19 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* public routes */}
         <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="link" element={<Link />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/galeria" element={<Gallery />} />
+        <Route path="/servicos" element={<Services />} />
+        <Route path="/contato" element={<Contact />} />
 
         {/* protected routes */}
         <Route element={<PersistLogin />}>
-          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-            <Route path="" element={<Home />} />
-          </Route>
-          <Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
-            <Route path="editor" element={<Editor />} />
-          </Route>
           <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-            <Route path="admin" element={<Admin />} />
-          </Route>
-          <Route
-            element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}
-          >
-            <Route path="editor" element={<Editor />} />
-            <Route path="add-employee" element={<AddEmployee />} />
-          </Route>
-          <Route
-            element={
-              <RequireAuth
-                allowedRoles={[ROLES.Admin, ROLES.User, ROLES.Editor]}
-              />
-            }
-          >
-            <Route path="lounge" element={<Lounge />} />
+            <Route path="admin" element={<ListContacts />} />
           </Route>
         </Route>
-        {/* call all */}
         <Route path="*" element={<Missing />} />
       </Route>
     </Routes>

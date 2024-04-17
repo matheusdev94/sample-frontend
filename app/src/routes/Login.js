@@ -54,7 +54,7 @@ const Login = () => {
         .then((response) => {
           console.clear();
           // alert(JSON.stringify(response));
-          response?.data?.accessToken && navigateTo("/link");
+          response?.data?.accessToken && navigateTo("/list-contacts");
         });
     };
 
@@ -189,11 +189,11 @@ const Login = () => {
         <button type="submit" className="button">
           {languages[language].textLogin}
         </button>
-        <div className="login-division">
+        {/* <div className="login-division">
           <hr />
           <p>{languages[language].textOrLogin}</p>
-        </div>
-        <button
+        </div> */}
+        {/* <button
           type="button"
           onClick={() => {
             loginGoogle();
@@ -202,13 +202,13 @@ const Login = () => {
         >
           <FcGoogle size={"18px"} />
           {languages[language].textLoginButtonGoogle}
-        </button>
+        </button> */}
         <p className="form-sugestion">
           {languages[language].textDontHaveAccount}
 
-          <Link to="/register" className="to-login-register-link">
+          {/* <Link to="/register" className="to-login-register-link">
             {languages[language].textRegister}
-          </Link>
+          </Link> */}
         </p>
       </form>
     </section>

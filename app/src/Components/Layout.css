@@ -1,0 +1,19 @@
+.components-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mutable-content {
+  display: flex;
+  /* background-color: black; */
+  flex-direction: column;
+  width: 100%;
+  min-height: 84vh;
+  align-items: center;
+  margin-top: 60px;
+}
+@media screen and (width<670px) {
+  .mutable-content {
+    margin-top: 122px;
+  }
+}

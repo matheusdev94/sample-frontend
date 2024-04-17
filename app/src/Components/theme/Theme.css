@@ -1,0 +1,21 @@
+.colormode-section {
+  position: absolute;
+  right: 20px;
+  bottom: 0px;
+}
+.colormode-button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  /* margin: 24px; */
+  padding: 5px;
+}
+.colormode-button > p {
+  margin: 0px 5px;
+  padding: 0;
+}
+
+.colormode-icon {
+  margin-right: 4px;
+}

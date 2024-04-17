@@ -1,0 +1,17 @@
+.main-contact {
+  width: 100%;
+  /* min-height: 89vh; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+}
+.success-register {
+  width: 540px;
+  height: 325px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}

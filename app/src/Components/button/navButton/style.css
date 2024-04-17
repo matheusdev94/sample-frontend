@@ -1,0 +1,73 @@
+.navButton {
+  width: 140px;
+  position: relative;
+  height: 20px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  padding: 15px;
+}
+.nav-link {
+  text-decoration: none;
+}
+.text-navbar-btn {
+  margin: 0;
+  color: gray;
+  font-size: 1em;
+  transition: 0.5s;
+  align-self: center;
+  border: 1px;
+}
+
+.bottom {
+  content: ""; /* Adicionado para garantir que os pseudo-elementos tenham conteúdo */
+  display: block;
+  width: 0%;
+  box-shadow: 0px -3px 5px white;
+  background-color: white;
+  height: 1px;
+  transition: 0.5s;
+  align-self: center;
+}
+
+/* .bottom:hover::before, */
+.navButton:hover {
+  p {
+    /* color: #fff; */
+    transition: 0.1s;
+    border-bottom: 1px lightblue;
+  }
+  /* text-shadow: 1px 1px 30px white; */
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+}
+.container:hover {
+  .bottom {
+    width: 100%;
+  }
+}
+.navButton:active {
+  p {
+    color: white;
+    font-size: 0.9em;
+    transition: 0.001s;
+  }
+}
+.nav-icon {
+  margin-right: 5px;
+}

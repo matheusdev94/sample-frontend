@@ -1,0 +1,144 @@
+@import url("../../styles/animations.css");
+.navbar-contacts > * {
+  /* margin: 0 10px; */
+}
+.navbar-contacts {
+  display: flex;
+  margin: 0px 80px;
+  border-bottom: 1px solid #6d7178;
+}
+
+.navbar-icons {
+  display: flex;
+  flex-direction: row;
+  height: min-content;
+  align-self: center;
+}
+.navbar-contact-icon {
+  margin: 0px 5px;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  color: black;
+  justify-content: center;
+  padding: 0.1em 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin: 0px 15px;
+}
+.navbar-components-container {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  background-color: transparent;
+  color: black;
+  align-items: center;
+  justify-content: center;
+}
+.menu-icon {
+  font-size: 1.3em;
+  color: #6d7178;
+  transition: 0.5s;
+  &:hover {
+    color: white;
+    text-shadow: #ffffff;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .a {
+    color: #6d7178;
+  }
+
+  .menu-button {
+    display: none;
+  }
+  .nav-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 849px) {
+  .navbar-contacts > p {
+    margin: 0;
+    font-size: 15px;
+    margin: 0px 10px;
+  }
+
+  .navbar-components-container {
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    background-color: transparent;
+    color: black;
+    align-items: center;
+    justify-content: start;
+  }
+  .a {
+    color: #6d7178;
+  }
+
+  .menu-button > * {
+    justify-content: center;
+    justify-items: center;
+  }
+  .menu-button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-radius: 10px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 0px 15px;
+    animation: in 0.5s ease-in-out;
+
+    &:hover {
+      transition: 0.5s;
+      text-shadow: 0px 0px 10px 1px white;
+      /* background-color: #5e636a; */
+    }
+  }
+
+  .nav-buttons {
+    display: none;
+  }
+  .search-container {
+    justify-content: end;
+    margin: 10px;
+  }
+}
+
+@media screen and (width<670px) {
+  /* .colormode-button {
+    margin-top: 20px;
+  } */
+  .navbar-contacts {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .colormode-button {
+    border: none;
+    cursor: pointer;
+    margin-top: 35px;
+  }
+}

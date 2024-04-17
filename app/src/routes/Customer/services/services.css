@@ -1,0 +1,67 @@
+#title-services {
+  position: fixed;
+  z-index: 100;
+  margin-top: -10px;
+}
+.services {
+  background-image: url("../../../img/background/services-bg.png");
+  height: 89vh;
+  overflow: auto;
+  ul {
+    padding: 0;
+  }
+}
+
+.whatsapp-image-icon {
+  width: 20px;
+  align-self: center;
+  bottom: 0;
+}
+h1,
+.item-description {
+  width: 100%;
+  display: flex;
+  align-self: center;
+}
+.services > * {
+  display: flex;
+  justify-content: center;
+}
+.service-list li:nth-child(even) {
+  .item-details {
+    flex-direction: row-reverse;
+  }
+}
+.service-list {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  /* background-image: url("../../../img/background/services-bg.png"); */
+  list-style-type: none;
+}
+.service-list-item {
+  opacity: 0;
+  transform: translateX(-150px);
+  /* transition: 2s; */
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+.service-list-item-visible {
+  margin: 10px 0px;
+  opacity: 1;
+  transition: 2s;
+  transform: translateX(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (width<570px) {
+  * li {
+    flex-direction: column;
+  }
+  .service-list li:nth-child(even) {
+    .item-details {
+      flex-direction: column-reverse;
+    }
+  }
+}

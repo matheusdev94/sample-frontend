@@ -1,4 +1,4 @@
-ul::-webkit-scrollbar {
+/* ul::-webkit-scrollbar {
   background-color: transparent;
 
   width: 7px;
@@ -6,9 +6,36 @@ ul::-webkit-scrollbar {
 
 ul::-webkit-scrollbar-thumb {
   background-color: white;
+
   border-radius: 10px;
   width: 5px;
 }
 ul::-webkit-scrollbar-track {
   width: 5px;
+} */
+::-webkit-scrollbar {
+  width: 10px;
+  position: absolute;
+  z-index: 10000;
+}
+
+body::-webkit-scrollbar-track {
+  /* background: #8ff4ff; */
+  background: #e7e6e6;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  /* border-radius: 3px; */
+  /* background: #fff; */
+  background: gray;
+
+  /* border-radius: 10px; */
+}
+::-webkit-scrollbar-thumb:hover {
+  /* background: #555; Cor do botão de rolagem ao passar o mouse por cima */
+  background: #000;
+  /* background: #43478f; */
 }
